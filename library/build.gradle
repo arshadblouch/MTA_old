@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 28
+        versionCode 2020020102
+        versionName "2020.02.01"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    buildToolsVersion '28.0.3'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.google.firebase:firebase-inappmessaging-display:19.0.7'
+}
+
+apply from: '../maven_push.gradle'
+apply plugin: 'com.google.gms.google-services'
+googleServices { disableVersionCheck = true }
